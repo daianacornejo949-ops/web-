@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WEB</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">PATITAS SUAVES🐶🐱</div>
+    <nav class="nav" id="mainNav" aria-label="Navegación principal">
+      <button data-section="registro" class="nav-btn">Registro</button>
+      <button data-section="agenda" class="nav-btn">Agenda</button>
+      <button data-section="catalogo" class="nav-btn">Catálogo / Carrito</button>
+      <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="loginSection" class="panel">
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm" class="form">
+        <label>Usuario
+          <input type="text" id="loginUser" required>
+        </label>
+        <label>Contraseña
+          <input type="password" id="loginPass" required>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="primary">Entrar</button>
+        </div>
+        <p class="hint">Usuario por defecto: <strong>admin</strong> / Contraseña: <strong>1234</strong></p>
+      </form>
+    </section>
+    <section id="appSection" class="hidden">
+      <div class="welcome">
+        <h2>Bienvenido al sistema</h2>
+        <p id="welcomeUser"></p>
+      </div>
+      <div id="registro" class="panel module hidden">
+        <h3>Registro de Dueños y Mascotas</h3>
+        <div class="grid-2">
+          <form id="ownerForm" class="form card">
+            <h4>Registrar Dueño</h4>
+            <label>Nombre
+              <input type="text" id="ownerName" required>
+            </label>
+            <label>Teléfono
+              <input type="tel" id="ownerPhone" required>
+            </label>
+            <label>Correo
+              <input type="email" id="ownerEmail" required>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="primary">Guardar Dueño</button>
+            </div>
+          </form>
+
+          <form id="petForm" class="form card">
+            <h4>Registrar Mascota</h4>
+            <label>Nombre
+              <input type="text" id="petName" required>
+            </label>
+            <label>Especie
+              <input type="text" id="petSpecies" placeholder="Perro, Gato..." required>
+            </label>
+            <label>Raza
+              <input type="text" id="petBreed" required>
+            </label>
+            <label>Dueño
+              <select id="petOwnerSelect" required>
+                <option value="">-- Seleccione dueño --</option>
+              </select>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="primary">Guardar Mascota</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="list card">
+          <h4>Dueños registrados</h4>
+          <ul id="ownersList"></ul>
+        </div>
+
+        <div class="list card">
+          <h4>Mascotas registradas</h4>
+          <ul id="petsList"></ul>
+        </div>
+      </div>
+      <div id="agenda" class="panel module hidden">
+        <h3>Agenda de Servicios</h3>
+        <form id="appointmentForm" class="form card">
+          <label>Fecha
+            <input type="date" id="appDate" required>
+          </label>
+          <label>Hora
+            <input type="time" id="appTime" required>
+          </label>
+          <label>Mascota
+            <select id="appPetSelect" required>
+              <option value="">-- Seleccione mascota --</option>
+            </select>
+          </label>
+          <label>Servicio
+            <select id="appServiceSelect" required></select>
+          </label>
+          <div class="service-price">Precio seleccionado: <span id="servicePriceDisplay">0.00</span> Bs.</div>
+          <div class="form-actions">
+            <button type="submit" class="primary">Agendar</button>
+          </div>
+        </form>
+
+        <div class="list card">
+          <h4>Citas agendadas</h4>
+          <table class="appointments-table">
+            <thead>
+              <tr><th>Fecha</th><th>Hora</th><th>Mascota</th><th>Servicio</th><th>Precio</th></tr>
+            </thead>
+            <tbody id="appointmentsTBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="catalogo" class="panel module hidden">
+        <h3>Catálogo</h3>
+        <div id="catalogGrid" class="catalog-grid"></div>
+
+        <aside class="cart card">
+          <h4>Carrito</h4>
+          <ul id="cartItems"></ul>
+          <div class="cart-summary">
+            <div>Subtotal: <span id="cartSubtotal">0.00</span> Bs.</div>
+
+            <div class="total">Total: <span id="cartTotal">0.00</span> Bs.</div>
+          </div>
+          <div class="form-actions">
+            <button id="clearCart" class="secondary">Vaciar Carrito</button>
+            <button id="checkoutBtn" class="primary">Pagar</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small></small>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
